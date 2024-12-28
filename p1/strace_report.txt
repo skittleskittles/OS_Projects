@@ -1,0 +1,68 @@
+execve("./cs238", ["./cs238", "1 + 3 * (4 - 1)"], 0x7ffdf97b2a68 /* 31 vars */) = 0
+brk(NULL)                               = 0x5c7699393000
+mmap(NULL, 8192, PROT_READ|PROT_WRITE, MAP_PRIVATE|MAP_ANONYMOUS, -1, 0) = 0x73e08b084000
+access("/etc/ld.so.preload", R_OK)      = -1 ENOENT (No such file or directory)
+openat(AT_FDCWD, "/home/shuyuanf/projects/p1/libm.so.6", O_RDONLY|O_CLOEXEC) = -1 ENOENT (No such file or directory)
+newfstatat(AT_FDCWD, "/home/shuyuanf/projects/p1/", {st_mode=S_IFDIR|0755, st_size=4096, ...}, 0) = 0
+openat(AT_FDCWD, "/etc/ld.so.cache", O_RDONLY|O_CLOEXEC) = 3
+fstat(3, {st_mode=S_IFREG|0644, st_size=32547, ...}) = 0
+mmap(NULL, 32547, PROT_READ, MAP_PRIVATE, 3, 0) = 0x73e08b07c000
+close(3)                                = 0
+openat(AT_FDCWD, "/lib/x86_64-linux-gnu/libm.so.6", O_RDONLY|O_CLOEXEC) = 3
+read(3, "\177ELF\2\1\1\3\0\0\0\0\0\0\0\0\3\0>\0\1\0\0\0\0\0\0\0\0\0\0\0"..., 832) = 832
+fstat(3, {st_mode=S_IFREG|0644, st_size=952616, ...}) = 0
+mmap(NULL, 950296, PROT_READ, MAP_PRIVATE|MAP_DENYWRITE, 3, 0) = 0x73e08af93000
+mmap(0x73e08afa3000, 520192, PROT_READ|PROT_EXEC, MAP_PRIVATE|MAP_FIXED|MAP_DENYWRITE, 3, 0x10000) = 0x73e08afa3000
+mmap(0x73e08b022000, 360448, PROT_READ, MAP_PRIVATE|MAP_FIXED|MAP_DENYWRITE, 3, 0x8f000) = 0x73e08b022000
+mmap(0x73e08b07a000, 8192, PROT_READ|PROT_WRITE, MAP_PRIVATE|MAP_FIXED|MAP_DENYWRITE, 3, 0xe7000) = 0x73e08b07a000
+close(3)                                = 0
+openat(AT_FDCWD, "/home/shuyuanf/projects/p1/libc.so.6", O_RDONLY|O_CLOEXEC) = -1 ENOENT (No such file or directory)
+openat(AT_FDCWD, "/lib/x86_64-linux-gnu/libc.so.6", O_RDONLY|O_CLOEXEC) = 3
+read(3, "\177ELF\2\1\1\3\0\0\0\0\0\0\0\0\3\0>\0\1\0\0\0\220\243\2\0\0\0\0\0"..., 832) = 832
+pread64(3, "\6\0\0\0\4\0\0\0@\0\0\0\0\0\0\0@\0\0\0\0\0\0\0@\0\0\0\0\0\0\0"..., 784, 64) = 784
+fstat(3, {st_mode=S_IFREG|0755, st_size=2125328, ...}) = 0
+pread64(3, "\6\0\0\0\4\0\0\0@\0\0\0\0\0\0\0@\0\0\0\0\0\0\0@\0\0\0\0\0\0\0"..., 784, 64) = 784
+mmap(NULL, 2170256, PROT_READ, MAP_PRIVATE|MAP_DENYWRITE, 3, 0) = 0x73e08ac00000
+mmap(0x73e08ac28000, 1605632, PROT_READ|PROT_EXEC, MAP_PRIVATE|MAP_FIXED|MAP_DENYWRITE, 3, 0x28000) = 0x73e08ac28000
+mmap(0x73e08adb0000, 323584, PROT_READ, MAP_PRIVATE|MAP_FIXED|MAP_DENYWRITE, 3, 0x1b0000) = 0x73e08adb0000
+mmap(0x73e08adff000, 24576, PROT_READ|PROT_WRITE, MAP_PRIVATE|MAP_FIXED|MAP_DENYWRITE, 3, 0x1fe000) = 0x73e08adff000
+mmap(0x73e08ae05000, 52624, PROT_READ|PROT_WRITE, MAP_PRIVATE|MAP_FIXED|MAP_ANONYMOUS, -1, 0) = 0x73e08ae05000
+close(3)                                = 0
+mmap(NULL, 12288, PROT_READ|PROT_WRITE, MAP_PRIVATE|MAP_ANONYMOUS, -1, 0) = 0x73e08af90000
+arch_prctl(ARCH_SET_FS, 0x73e08af90740) = 0
+set_tid_address(0x73e08af90a10)         = 2653
+set_robust_list(0x73e08af90a20, 24)     = 0
+rseq(0x73e08af91060, 0x20, 0, 0x53053053) = 0
+mprotect(0x73e08adff000, 16384, PROT_READ) = 0
+mprotect(0x73e08b07a000, 4096, PROT_READ) = 0
+mprotect(0x5c7698421000, 4096, PROT_READ) = 0
+mprotect(0x73e08b0bc000, 8192, PROT_READ) = 0
+prlimit64(0, RLIMIT_STACK, NULL, {rlim_cur=8192*1024, rlim_max=RLIM64_INFINITY}) = 0
+munmap(0x73e08b07c000, 32547)           = 0
+getrandom("\x26\x8b\x0f\xe2\xaa\x58\x09\x0c", 8, GRND_NONBLOCK) = 8
+brk(NULL)                               = 0x5c7699393000
+brk(0x5c76993b4000)                     = 0x5c76993b4000
+openat(AT_FDCWD, "out.c", O_WRONLY|O_CREAT|O_TRUNC, 0666) = 3
+fstat(3, {st_mode=S_IFREG|0664, st_size=0, ...}) = 0
+write(3, "double evaluate_expression(void)"..., 355) = 355
+close(3)                                = 0
+clone(child_stack=NULL, flags=CLONE_CHILD_CLEARTID|CLONE_CHILD_SETTID|SIGCHLD, child_tidptr=0x73e08af90a10) = 2654
+wait4(2654, [{WIFEXITED(s) && WEXITSTATUS(s) == 0}], 0, NULL) = 2654
+--- SIGCHLD {si_signo=SIGCHLD, si_code=CLD_EXITED, si_pid=2654, si_uid=1000, si_status=0, si_utime=0, si_stime=1 /* 0.01 s */} ---
+unlink("out.c")                         = 0
+openat(AT_FDCWD, "/home/shuyuanf/projects/p1/out.so", O_RDONLY|O_CLOEXEC) = 3
+read(3, "\177ELF\2\1\1\0\0\0\0\0\0\0\0\0\3\0>\0\1\0\0\0\0\0\0\0\0\0\0\0"..., 832) = 832
+fstat(3, {st_mode=S_IFREG|0775, st_size=15416, ...}) = 0
+mmap(NULL, 16416, PROT_READ, MAP_PRIVATE|MAP_DENYWRITE, 3, 0) = 0x73e08b07f000
+mmap(0x73e08b080000, 4096, PROT_READ|PROT_EXEC, MAP_PRIVATE|MAP_FIXED|MAP_DENYWRITE, 3, 0x1000) = 0x73e08b080000
+mmap(0x73e08b081000, 4096, PROT_READ, MAP_PRIVATE|MAP_FIXED|MAP_DENYWRITE, 3, 0x2000) = 0x73e08b081000
+mmap(0x73e08b082000, 8192, PROT_READ|PROT_WRITE, MAP_PRIVATE|MAP_FIXED|MAP_DENYWRITE, 3, 0x2000) = 0x73e08b082000
+close(3)                                = 0
+mprotect(0x73e08b082000, 4096, PROT_READ) = 0
+fstat(1, {st_mode=S_IFREG|0664, st_size=4625, ...}) = 0
+unlink("out.so")                        = 0
+munmap(0x73e08b07f000, 16416)           = 0
+write(1, "0.999955\n", 90.999955
+)               = 9
+exit_group(0)                           = ?
++++ exited with 0 +++
