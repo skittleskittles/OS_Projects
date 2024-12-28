@@ -1,0 +1,355 @@
+execve("./cs238", ["./cs238"], 0x7ffcc5b55d60 /* 38 vars */) = 0
+brk(NULL)                               = 0x627c565f2000
+mmap(NULL, 8192, PROT_READ|PROT_WRITE, MAP_PRIVATE|MAP_ANONYMOUS, -1, 0) = 0x7e501a53d000
+access("/etc/ld.so.preload", R_OK)      = -1 ENOENT (No such file or directory)
+openat(AT_FDCWD, "./libc.so.6", O_RDONLY|O_CLOEXEC) = -1 ENOENT (No such file or directory)
+openat(AT_FDCWD, "/etc/ld.so.cache", O_RDONLY|O_CLOEXEC) = 3
+fstat(3, {st_mode=S_IFREG|0644, st_size=29151, ...}) = 0
+mmap(NULL, 29151, PROT_READ, MAP_PRIVATE, 3, 0) = 0x7e501a535000
+close(3)                                = 0
+openat(AT_FDCWD, "/lib/x86_64-linux-gnu/libc.so.6", O_RDONLY|O_CLOEXEC) = 3
+read(3, "\177ELF\2\1\1\3\0\0\0\0\0\0\0\0\3\0>\0\1\0\0\0\220\243\2\0\0\0\0\0"..., 832) = 832
+pread64(3, "\6\0\0\0\4\0\0\0@\0\0\0\0\0\0\0@\0\0\0\0\0\0\0@\0\0\0\0\0\0\0"..., 784, 64) = 784
+fstat(3, {st_mode=S_IFREG|0755, st_size=2125328, ...}) = 0
+pread64(3, "\6\0\0\0\4\0\0\0@\0\0\0\0\0\0\0@\0\0\0\0\0\0\0@\0\0\0\0\0\0\0"..., 784, 64) = 784
+mmap(NULL, 2170256, PROT_READ, MAP_PRIVATE|MAP_DENYWRITE, 3, 0) = 0x7e501a200000
+mmap(0x7e501a228000, 1605632, PROT_READ|PROT_EXEC, MAP_PRIVATE|MAP_FIXED|MAP_DENYWRITE, 3, 0x28000) = 0x7e501a228000
+mmap(0x7e501a3b0000, 323584, PROT_READ, MAP_PRIVATE|MAP_FIXED|MAP_DENYWRITE, 3, 0x1b0000) = 0x7e501a3b0000
+mmap(0x7e501a3ff000, 24576, PROT_READ|PROT_WRITE, MAP_PRIVATE|MAP_FIXED|MAP_DENYWRITE, 3, 0x1fe000) = 0x7e501a3ff000
+mmap(0x7e501a405000, 52624, PROT_READ|PROT_WRITE, MAP_PRIVATE|MAP_FIXED|MAP_ANONYMOUS, -1, 0) = 0x7e501a405000
+close(3)                                = 0
+mmap(NULL, 12288, PROT_READ|PROT_WRITE, MAP_PRIVATE|MAP_ANONYMOUS, -1, 0) = 0x7e501a532000
+arch_prctl(ARCH_SET_FS, 0x7e501a532740) = 0
+set_tid_address(0x7e501a532a10)         = 9094
+set_robust_list(0x7e501a532a20, 24)     = 0
+rseq(0x7e501a533060, 0x20, 0, 0x53053053) = 0
+mprotect(0x7e501a3ff000, 16384, PROT_READ) = 0
+mprotect(0x627c54eb0000, 4096, PROT_READ) = 0
+mprotect(0x7e501a575000, 8192, PROT_READ) = 0
+prlimit64(0, RLIMIT_STACK, NULL, {rlim_cur=8192*1024, rlim_max=RLIM64_INFINITY}) = 0
+munmap(0x7e501a535000, 29151)           = 0
+rt_sigaction(SIGINT, {sa_handler=0x627c54ead520, sa_mask=[], sa_flags=SA_RESTORER|SA_INTERRUPT|SA_NODEFER|SA_RESETHAND|0xffffffff00000000, sa_restorer=0x7e501a245320}, {sa_handler=SIG_DFL, sa_mask=[], sa_flags=0}, 8) = 0
+getrandom("\x00\xca\x49\x01\x54\xc7\x71\x02", 8, GRND_NONBLOCK) = 8
+brk(NULL)                               = 0x627c565f2000
+brk(0x627c56613000)                     = 0x627c56613000
+openat(AT_FDCWD, "/proc/stat", O_RDONLY) = 3
+fstat(3, {st_mode=S_IFREG|0444, st_size=0, ...}) = 0
+read(3, "cpu  85851 630 125389 17666684 4"..., 1024) = 1024
+fstat(1, {st_mode=S_IFCHR|0620, st_rdev=makedev(0x88, 0x2), ...}) = 0
+write(1, "\r CPU:   1.2%", 13)          = 13
+close(3)                                = 0
+openat(AT_FDCWD, "/proc/meminfo", O_RDONLY) = 3
+fstat(3, {st_mode=S_IFREG|0444, st_size=0, ...}) = 0
+read(3, "MemTotal:        4005964 kB\nMemF"..., 1024) = 1024
+read(3, "      21360 kB\nVmallocChunk:    "..., 1024) = 479
+read(3, "", 1024)                       = 0
+close(3)                                = 0
+openat(AT_FDCWD, "/proc/net/dev", O_RDONLY) = 3
+fstat(3, {st_mode=S_IFREG|0444, st_size=0, ...}) = 0
+read(3, "Inter-|   Receive               "..., 1024) = 452
+read(3, "", 1024)                       = 0
+close(3)                                = 0
+openat(AT_FDCWD, "/proc/diskstats", O_RDONLY) = 3
+fstat(3, {st_mode=S_IFREG|0444, st_size=0, ...}) = 0
+read(3, "   7       0 loop0 11 0 28 9 0 0"..., 1024) = 900
+close(3)                                = 0
+clock_nanosleep(CLOCK_REALTIME, 0, {tv_sec=0, tv_nsec=500000000}, 0x7ffefda72f50) = 0
+openat(AT_FDCWD, "/proc/stat", O_RDONLY) = 3
+fstat(3, {st_mode=S_IFREG|0444, st_size=0, ...}) = 0
+read(3, "cpu  85854 630 125392 17666892 4"..., 1024) = 1024
+write(1, "  MEM:  16.4%  Interface: enp0s1"..., 158) = 158
+close(3)                                = 0
+openat(AT_FDCWD, "/proc/meminfo", O_RDONLY) = 3
+fstat(3, {st_mode=S_IFREG|0444, st_size=0, ...}) = 0
+read(3, "MemTotal:        4005964 kB\nMemF"..., 1024) = 1024
+read(3, "      21360 kB\nVmallocChunk:    "..., 1024) = 479
+read(3, "", 1024)                       = 0
+close(3)                                = 0
+openat(AT_FDCWD, "/proc/net/dev", O_RDONLY) = 3
+fstat(3, {st_mode=S_IFREG|0444, st_size=0, ...}) = 0
+read(3, "Inter-|   Receive               "..., 1024) = 452
+read(3, "", 1024)                       = 0
+close(3)                                = 0
+openat(AT_FDCWD, "/proc/diskstats", O_RDONLY) = 3
+fstat(3, {st_mode=S_IFREG|0444, st_size=0, ...}) = 0
+read(3, "   7       0 loop0 11 0 28 9 0 0"..., 1024) = 900
+close(3)                                = 0
+clock_nanosleep(CLOCK_REALTIME, 0, {tv_sec=0, tv_nsec=500000000}, 0x7ffefda72f50) = 0
+openat(AT_FDCWD, "/proc/stat", O_RDONLY) = 3
+fstat(3, {st_mode=S_IFREG|0444, st_size=0, ...}) = 0
+read(3, "cpu  85861 630 125402 17667081 4"..., 1024) = 1024
+write(1, "  MEM:  16.4%  Interface: enp0s1"..., 158) = 158
+close(3)                                = 0
+openat(AT_FDCWD, "/proc/meminfo", O_RDONLY) = 3
+fstat(3, {st_mode=S_IFREG|0444, st_size=0, ...}) = 0
+read(3, "MemTotal:        4005964 kB\nMemF"..., 1024) = 1024
+read(3, "      21408 kB\nVmallocChunk:    "..., 1024) = 479
+read(3, "", 1024)                       = 0
+close(3)                                = 0
+openat(AT_FDCWD, "/proc/net/dev", O_RDONLY) = 3
+fstat(3, {st_mode=S_IFREG|0444, st_size=0, ...}) = 0
+read(3, "Inter-|   Receive               "..., 1024) = 452
+read(3, "", 1024)                       = 0
+close(3)                                = 0
+openat(AT_FDCWD, "/proc/diskstats", O_RDONLY) = 3
+fstat(3, {st_mode=S_IFREG|0444, st_size=0, ...}) = 0
+read(3, "   7       0 loop0 11 0 28 9 0 0"..., 1024) = 900
+close(3)                                = 0
+clock_nanosleep(CLOCK_REALTIME, 0, {tv_sec=0, tv_nsec=500000000}, 0x7ffefda72f50) = 0
+openat(AT_FDCWD, "/proc/stat", O_RDONLY) = 3
+fstat(3, {st_mode=S_IFREG|0444, st_size=0, ...}) = 0
+read(3, "cpu  85864 630 125408 17667284 4"..., 1024) = 1024
+write(1, "  MEM:  16.4%  Interface: enp0s1"..., 158) = 158
+close(3)                                = 0
+openat(AT_FDCWD, "/proc/meminfo", O_RDONLY) = 3
+fstat(3, {st_mode=S_IFREG|0444, st_size=0, ...}) = 0
+read(3, "MemTotal:        4005964 kB\nMemF"..., 1024) = 1024
+read(3, "      21408 kB\nVmallocChunk:    "..., 1024) = 479
+read(3, "", 1024)                       = 0
+close(3)                                = 0
+openat(AT_FDCWD, "/proc/net/dev", O_RDONLY) = 3
+fstat(3, {st_mode=S_IFREG|0444, st_size=0, ...}) = 0
+read(3, "Inter-|   Receive               "..., 1024) = 452
+read(3, "", 1024)                       = 0
+close(3)                                = 0
+openat(AT_FDCWD, "/proc/diskstats", O_RDONLY) = 3
+fstat(3, {st_mode=S_IFREG|0444, st_size=0, ...}) = 0
+read(3, "   7       0 loop0 11 0 28 9 0 0"..., 1024) = 900
+close(3)                                = 0
+clock_nanosleep(CLOCK_REALTIME, 0, {tv_sec=0, tv_nsec=500000000}, 0x7ffefda72f50) = 0
+openat(AT_FDCWD, "/proc/stat", O_RDONLY) = 3
+fstat(3, {st_mode=S_IFREG|0444, st_size=0, ...}) = 0
+read(3, "cpu  85868 630 125416 17667487 4"..., 1024) = 1024
+write(1, "  MEM:  16.4%  Interface: enp0s1"..., 158) = 158
+close(3)                                = 0
+openat(AT_FDCWD, "/proc/meminfo", O_RDONLY) = 3
+fstat(3, {st_mode=S_IFREG|0444, st_size=0, ...}) = 0
+read(3, "MemTotal:        4005964 kB\nMemF"..., 1024) = 1024
+read(3, "      21392 kB\nVmallocChunk:    "..., 1024) = 479
+read(3, "", 1024)                       = 0
+close(3)                                = 0
+openat(AT_FDCWD, "/proc/net/dev", O_RDONLY) = 3
+fstat(3, {st_mode=S_IFREG|0444, st_size=0, ...}) = 0
+read(3, "Inter-|   Receive               "..., 1024) = 452
+read(3, "", 1024)                       = 0
+close(3)                                = 0
+openat(AT_FDCWD, "/proc/diskstats", O_RDONLY) = 3
+fstat(3, {st_mode=S_IFREG|0444, st_size=0, ...}) = 0
+read(3, "   7       0 loop0 11 0 28 9 0 0"..., 1024) = 900
+close(3)                                = 0
+clock_nanosleep(CLOCK_REALTIME, 0, {tv_sec=0, tv_nsec=500000000}, 0x7ffefda72f50) = 0
+openat(AT_FDCWD, "/proc/stat", O_RDONLY) = 3
+fstat(3, {st_mode=S_IFREG|0444, st_size=0, ...}) = 0
+read(3, "cpu  85878 630 125421 17667670 4"..., 1024) = 1024
+write(1, "  MEM:  16.4%  Interface: enp0s1"..., 158) = 158
+close(3)                                = 0
+openat(AT_FDCWD, "/proc/meminfo", O_RDONLY) = 3
+fstat(3, {st_mode=S_IFREG|0444, st_size=0, ...}) = 0
+read(3, "MemTotal:        4005964 kB\nMemF"..., 1024) = 1024
+read(3, "      21392 kB\nVmallocChunk:    "..., 1024) = 479
+read(3, "", 1024)                       = 0
+close(3)                                = 0
+openat(AT_FDCWD, "/proc/net/dev", O_RDONLY) = 3
+fstat(3, {st_mode=S_IFREG|0444, st_size=0, ...}) = 0
+read(3, "Inter-|   Receive               "..., 1024) = 452
+read(3, "", 1024)                       = 0
+close(3)                                = 0
+openat(AT_FDCWD, "/proc/diskstats", O_RDONLY) = 3
+fstat(3, {st_mode=S_IFREG|0444, st_size=0, ...}) = 0
+read(3, "   7       0 loop0 11 0 28 9 0 0"..., 1024) = 900
+close(3)                                = 0
+clock_nanosleep(CLOCK_REALTIME, 0, {tv_sec=0, tv_nsec=500000000}, 0x7ffefda72f50) = 0
+openat(AT_FDCWD, "/proc/stat", O_RDONLY) = 3
+fstat(3, {st_mode=S_IFREG|0444, st_size=0, ...}) = 0
+read(3, "cpu  85888 630 125430 17667840 4"..., 1024) = 1024
+write(1, "  MEM:  16.4%  Interface: enp0s1"..., 158) = 158
+close(3)                                = 0
+openat(AT_FDCWD, "/proc/meminfo", O_RDONLY) = 3
+fstat(3, {st_mode=S_IFREG|0444, st_size=0, ...}) = 0
+read(3, "MemTotal:        4005964 kB\nMemF"..., 1024) = 1024
+read(3, "      21408 kB\nVmallocChunk:    "..., 1024) = 479
+read(3, "", 1024)                       = 0
+close(3)                                = 0
+openat(AT_FDCWD, "/proc/net/dev", O_RDONLY) = 3
+fstat(3, {st_mode=S_IFREG|0444, st_size=0, ...}) = 0
+read(3, "Inter-|   Receive               "..., 1024) = 452
+read(3, "", 1024)                       = 0
+close(3)                                = 0
+openat(AT_FDCWD, "/proc/diskstats", O_RDONLY) = 3
+fstat(3, {st_mode=S_IFREG|0444, st_size=0, ...}) = 0
+read(3, "   7       0 loop0 11 0 28 9 0 0"..., 1024) = 900
+close(3)                                = 0
+clock_nanosleep(CLOCK_REALTIME, 0, {tv_sec=0, tv_nsec=500000000}, 0x7ffefda72f50) = 0
+openat(AT_FDCWD, "/proc/stat", O_RDONLY) = 3
+fstat(3, {st_mode=S_IFREG|0444, st_size=0, ...}) = 0
+read(3, "cpu  85896 630 125434 17668031 4"..., 1024) = 1024
+write(1, "  MEM:  16.5%  Interface: enp0s1"..., 158) = 158
+close(3)                                = 0
+openat(AT_FDCWD, "/proc/meminfo", O_RDONLY) = 3
+fstat(3, {st_mode=S_IFREG|0444, st_size=0, ...}) = 0
+read(3, "MemTotal:        4005964 kB\nMemF"..., 1024) = 1024
+read(3, "      21408 kB\nVmallocChunk:    "..., 1024) = 479
+read(3, "", 1024)                       = 0
+close(3)                                = 0
+openat(AT_FDCWD, "/proc/net/dev", O_RDONLY) = 3
+fstat(3, {st_mode=S_IFREG|0444, st_size=0, ...}) = 0
+read(3, "Inter-|   Receive               "..., 1024) = 452
+read(3, "", 1024)                       = 0
+close(3)                                = 0
+openat(AT_FDCWD, "/proc/diskstats", O_RDONLY) = 3
+fstat(3, {st_mode=S_IFREG|0444, st_size=0, ...}) = 0
+read(3, "   7       0 loop0 11 0 28 9 0 0"..., 1024) = 900
+close(3)                                = 0
+clock_nanosleep(CLOCK_REALTIME, 0, {tv_sec=0, tv_nsec=500000000}, 0x7ffefda72f50) = 0
+openat(AT_FDCWD, "/proc/stat", O_RDONLY) = 3
+fstat(3, {st_mode=S_IFREG|0444, st_size=0, ...}) = 0
+read(3, "cpu  85904 630 125440 17668220 4"..., 1024) = 1024
+write(1, "  MEM:  16.5%  Interface: enp0s1"..., 158) = 158
+close(3)                                = 0
+openat(AT_FDCWD, "/proc/meminfo", O_RDONLY) = 3
+fstat(3, {st_mode=S_IFREG|0444, st_size=0, ...}) = 0
+read(3, "MemTotal:        4005964 kB\nMemF"..., 1024) = 1024
+read(3, "      21408 kB\nVmallocChunk:    "..., 1024) = 479
+read(3, "", 1024)                       = 0
+close(3)                                = 0
+openat(AT_FDCWD, "/proc/net/dev", O_RDONLY) = 3
+fstat(3, {st_mode=S_IFREG|0444, st_size=0, ...}) = 0
+read(3, "Inter-|   Receive               "..., 1024) = 452
+read(3, "", 1024)                       = 0
+close(3)                                = 0
+openat(AT_FDCWD, "/proc/diskstats", O_RDONLY) = 3
+fstat(3, {st_mode=S_IFREG|0444, st_size=0, ...}) = 0
+read(3, "   7       0 loop0 11 0 28 9 0 0"..., 1024) = 900
+close(3)                                = 0
+clock_nanosleep(CLOCK_REALTIME, 0, {tv_sec=0, tv_nsec=500000000}, 0x7ffefda72f50) = 0
+openat(AT_FDCWD, "/proc/stat", O_RDONLY) = 3
+fstat(3, {st_mode=S_IFREG|0444, st_size=0, ...}) = 0
+read(3, "cpu  85909 630 125442 17668415 4"..., 1024) = 1024
+write(1, "  MEM:  16.5%  Interface: enp0s1"..., 158) = 158
+close(3)                                = 0
+openat(AT_FDCWD, "/proc/meminfo", O_RDONLY) = 3
+fstat(3, {st_mode=S_IFREG|0444, st_size=0, ...}) = 0
+read(3, "MemTotal:        4005964 kB\nMemF"..., 1024) = 1024
+read(3, "      21408 kB\nVmallocChunk:    "..., 1024) = 479
+read(3, "", 1024)                       = 0
+close(3)                                = 0
+openat(AT_FDCWD, "/proc/net/dev", O_RDONLY) = 3
+fstat(3, {st_mode=S_IFREG|0444, st_size=0, ...}) = 0
+read(3, "Inter-|   Receive               "..., 1024) = 452
+read(3, "", 1024)                       = 0
+close(3)                                = 0
+openat(AT_FDCWD, "/proc/diskstats", O_RDONLY) = 3
+fstat(3, {st_mode=S_IFREG|0444, st_size=0, ...}) = 0
+read(3, "   7       0 loop0 11 0 28 9 0 0"..., 1024) = 900
+close(3)                                = 0
+clock_nanosleep(CLOCK_REALTIME, 0, {tv_sec=0, tv_nsec=500000000}, 0x7ffefda72f50) = 0
+openat(AT_FDCWD, "/proc/stat", O_RDONLY) = 3
+fstat(3, {st_mode=S_IFREG|0444, st_size=0, ...}) = 0
+read(3, "cpu  85913 630 125445 17668620 4"..., 1024) = 1024
+write(1, "  MEM:  16.5%  Interface: enp0s1"..., 158) = 158
+close(3)                                = 0
+openat(AT_FDCWD, "/proc/meminfo", O_RDONLY) = 3
+fstat(3, {st_mode=S_IFREG|0444, st_size=0, ...}) = 0
+read(3, "MemTotal:        4005964 kB\nMemF"..., 1024) = 1024
+read(3, "      21408 kB\nVmallocChunk:    "..., 1024) = 479
+read(3, "", 1024)                       = 0
+close(3)                                = 0
+openat(AT_FDCWD, "/proc/net/dev", O_RDONLY) = 3
+fstat(3, {st_mode=S_IFREG|0444, st_size=0, ...}) = 0
+read(3, "Inter-|   Receive               "..., 1024) = 452
+read(3, "", 1024)                       = 0
+close(3)                                = 0
+openat(AT_FDCWD, "/proc/diskstats", O_RDONLY) = 3
+fstat(3, {st_mode=S_IFREG|0444, st_size=0, ...}) = 0
+read(3, "   7       0 loop0 11 0 28 9 0 0"..., 1024) = 900
+close(3)                                = 0
+clock_nanosleep(CLOCK_REALTIME, 0, {tv_sec=0, tv_nsec=500000000}, 0x7ffefda72f50) = 0
+openat(AT_FDCWD, "/proc/stat", O_RDONLY) = 3
+fstat(3, {st_mode=S_IFREG|0444, st_size=0, ...}) = 0
+read(3, "cpu  85925 630 125448 17668811 4"..., 1024) = 1024
+write(1, "  MEM:  16.5%  Interface: enp0s1"..., 158) = 158
+close(3)                                = 0
+openat(AT_FDCWD, "/proc/meminfo", O_RDONLY) = 3
+fstat(3, {st_mode=S_IFREG|0444, st_size=0, ...}) = 0
+read(3, "MemTotal:        4005964 kB\nMemF"..., 1024) = 1024
+read(3, "      21408 kB\nVmallocChunk:    "..., 1024) = 479
+read(3, "", 1024)                       = 0
+close(3)                                = 0
+openat(AT_FDCWD, "/proc/net/dev", O_RDONLY) = 3
+fstat(3, {st_mode=S_IFREG|0444, st_size=0, ...}) = 0
+read(3, "Inter-|   Receive               "..., 1024) = 452
+read(3, "", 1024)                       = 0
+close(3)                                = 0
+openat(AT_FDCWD, "/proc/diskstats", O_RDONLY) = 3
+fstat(3, {st_mode=S_IFREG|0444, st_size=0, ...}) = 0
+read(3, "   7       0 loop0 11 0 28 9 0 0"..., 1024) = 900
+close(3)                                = 0
+clock_nanosleep(CLOCK_REALTIME, 0, {tv_sec=0, tv_nsec=500000000}, 0x7ffefda72f50) = 0
+openat(AT_FDCWD, "/proc/stat", O_RDONLY) = 3
+fstat(3, {st_mode=S_IFREG|0444, st_size=0, ...}) = 0
+read(3, "cpu  85928 630 125450 17669008 4"..., 1024) = 1024
+write(1, "  MEM:  16.5%  Interface: enp0s1"..., 158) = 158
+close(3)                                = 0
+openat(AT_FDCWD, "/proc/meminfo", O_RDONLY) = 3
+fstat(3, {st_mode=S_IFREG|0444, st_size=0, ...}) = 0
+read(3, "MemTotal:        4005964 kB\nMemF"..., 1024) = 1024
+read(3, "      21408 kB\nVmallocChunk:    "..., 1024) = 479
+read(3, "", 1024)                       = 0
+close(3)                                = 0
+openat(AT_FDCWD, "/proc/net/dev", O_RDONLY) = 3
+fstat(3, {st_mode=S_IFREG|0444, st_size=0, ...}) = 0
+read(3, "Inter-|   Receive               "..., 1024) = 452
+read(3, "", 1024)                       = 0
+close(3)                                = 0
+openat(AT_FDCWD, "/proc/diskstats", O_RDONLY) = 3
+fstat(3, {st_mode=S_IFREG|0444, st_size=0, ...}) = 0
+read(3, "   7       0 loop0 11 0 28 9 0 0"..., 1024) = 900
+close(3)                                = 0
+clock_nanosleep(CLOCK_REALTIME, 0, {tv_sec=0, tv_nsec=500000000}, 0x7ffefda72f50) = 0
+openat(AT_FDCWD, "/proc/stat", O_RDONLY) = 3
+fstat(3, {st_mode=S_IFREG|0444, st_size=0, ...}) = 0
+read(3, "cpu  85933 630 125453 17669213 4"..., 1024) = 1024
+write(1, "  MEM:  16.5%  Interface: enp0s1"..., 158) = 158
+close(3)                                = 0
+openat(AT_FDCWD, "/proc/meminfo", O_RDONLY) = 3
+fstat(3, {st_mode=S_IFREG|0444, st_size=0, ...}) = 0
+read(3, "MemTotal:        4005964 kB\nMemF"..., 1024) = 1024
+read(3, "      21408 kB\nVmallocChunk:    "..., 1024) = 479
+read(3, "", 1024)                       = 0
+close(3)                                = 0
+openat(AT_FDCWD, "/proc/net/dev", O_RDONLY) = 3
+fstat(3, {st_mode=S_IFREG|0444, st_size=0, ...}) = 0
+read(3, "Inter-|   Receive               "..., 1024) = 452
+read(3, "", 1024)                       = 0
+close(3)                                = 0
+openat(AT_FDCWD, "/proc/diskstats", O_RDONLY) = 3
+fstat(3, {st_mode=S_IFREG|0444, st_size=0, ...}) = 0
+read(3, "   7       0 loop0 11 0 28 9 0 0"..., 1024) = 900
+close(3)                                = 0
+clock_nanosleep(CLOCK_REALTIME, 0, {tv_sec=0, tv_nsec=500000000}, 0x7ffefda72f50) = 0
+openat(AT_FDCWD, "/proc/stat", O_RDONLY) = 3
+fstat(3, {st_mode=S_IFREG|0444, st_size=0, ...}) = 0
+read(3, "cpu  85939 630 125457 17669417 4"..., 1024) = 1024
+write(1, "  MEM:  16.5%  Interface: enp0s1"..., 158) = 158
+close(3)                                = 0
+openat(AT_FDCWD, "/proc/meminfo", O_RDONLY) = 3
+fstat(3, {st_mode=S_IFREG|0444, st_size=0, ...}) = 0
+read(3, "MemTotal:        4005964 kB\nMemF"..., 1024) = 1024
+read(3, "      21392 kB\nVmallocChunk:    "..., 1024) = 479
+read(3, "", 1024)                       = 0
+close(3)                                = 0
+openat(AT_FDCWD, "/proc/net/dev", O_RDONLY) = 3
+fstat(3, {st_mode=S_IFREG|0444, st_size=0, ...}) = 0
+read(3, "Inter-|   Receive               "..., 1024) = 452
+read(3, "", 1024)                       = 0
+close(3)                                = 0
+openat(AT_FDCWD, "/proc/diskstats", O_RDONLY) = 3
+fstat(3, {st_mode=S_IFREG|0444, st_size=0, ...}) = 0
+read(3, "   7       0 loop0 11 0 28 9 0 0"..., 1024) = 900
+close(3)                                = 0
+clock_nanosleep(CLOCK_REALTIME, 0, {tv_sec=0, tv_nsec=500000000}, 0x7ffefda72f50) = 0
+--- SIGINT {si_signo=SIGINT, si_code=SI_KERNEL} ---
+rt_sigreturn({mask=[]})                 = 0
+write(1, "  MEM:  16.5%  Interface: enp0s1"..., 155) = 155
+exit_group(0)                           = ?
++++ exited with 0 +++
