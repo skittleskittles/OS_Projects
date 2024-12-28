@@ -1,0 +1,460 @@
+	.file	"scheduler.c"
+	.text
+	.globl	head
+	.bss
+	.align 8
+	.type	head, @object
+	.size	head, 8
+head:
+	.zero	8
+	.globl	current
+	.align 8
+	.type	current, @object
+	.size	current, 8
+current:
+	.zero	8
+	.globl	ctx
+	.align 32
+	.type	ctx, @object
+	.size	ctx, 200
+ctx:
+	.zero	200
+	.text
+	.globl	destroy
+	.type	destroy, @function
+destroy:
+.LFB6:
+	.cfi_startproc
+	endbr64
+	pushq	%rbp
+	.cfi_def_cfa_offset 16
+	.cfi_offset 6, -16
+	movq	%rsp, %rbp
+	.cfi_def_cfa_register 6
+	subq	$16, %rsp
+	movq	head(%rip), %rax
+	movq	%rax, -16(%rbp)
+.L2:
+	movq	-16(%rbp), %rax
+	movq	240(%rax), %rax
+	movq	%rax, -8(%rbp)
+	movq	-16(%rbp), %rax
+	movq	208(%rax), %rax
+	movq	%rax, %rdi
+	call	free@PLT
+	movq	-16(%rbp), %rax
+	movq	%rax, %rdi
+	call	free@PLT
+	movq	-8(%rbp), %rax
+	movq	%rax, -16(%rbp)
+	movq	head(%rip), %rax
+	cmpq	%rax, -16(%rbp)
+	jne	.L2
+	movq	$0, head(%rip)
+	movq	$0, current(%rip)
+	nop
+	leave
+	.cfi_def_cfa 7, 8
+	ret
+	.cfi_endproc
+.LFE6:
+	.size	destroy, .-destroy
+	.section	.rodata
+.LC0:
+	.string	"scheduler_create malloc()"
+.LC1:
+	.string	"^"
+.LC2:
+	.string	"scheduler.c"
+.LC3:
+	.string	"error: %s:%d: %s\n"
+	.text
+	.globl	scheduler_create
+	.type	scheduler_create, @function
+scheduler_create:
+.LFB7:
+	.cfi_startproc
+	endbr64
+	pushq	%rbp
+	.cfi_def_cfa_offset 16
+	.cfi_offset 6, -16
+	movq	%rsp, %rbp
+	.cfi_def_cfa_register 6
+	subq	$32, %rsp
+	movq	%rdi, -24(%rbp)
+	movq	%rsi, -32(%rbp)
+	call	page_size@PLT
+	movq	%rax, -16(%rbp)
+	movl	$248, %edi
+	call	malloc@PLT
+	movq	%rax, -8(%rbp)
+	cmpq	$0, -8(%rbp)
+	jne	.L4
+	leaq	.LC0(%rip), %rax
+	movq	%rax, %rdi
+	call	safe_strlen@PLT
+	testq	%rax, %rax
+	je	.L5
+	leaq	.LC0(%rip), %rax
+	jmp	.L6
+.L5:
+	leaq	.LC1(%rip), %rax
+.L6:
+	movq	stderr(%rip), %rdi
+	movq	%rax, %r8
+	movl	$75, %ecx
+	leaq	.LC2(%rip), %rax
+	movq	%rax, %rdx
+	leaq	.LC3(%rip), %rax
+	movq	%rax, %rsi
+	movl	$0, %eax
+	call	fprintf@PLT
+	movl	$-1, %eax
+	jmp	.L7
+.L4:
+	movq	-8(%rbp), %rax
+	movl	$0, 232(%rax)
+	movq	-8(%rbp), %rax
+	movq	-24(%rbp), %rdx
+	movq	%rdx, 224(%rax)
+	movq	-8(%rbp), %rax
+	movq	-32(%rbp), %rdx
+	movq	%rdx, 216(%rax)
+	movq	-16(%rbp), %rax
+	addq	$4096, %rax
+	movq	%rax, %rdi
+	call	malloc@PLT
+	movq	%rax, %rdx
+	movq	-8(%rbp), %rax
+	movq	%rdx, 208(%rax)
+	movq	-8(%rbp), %rax
+	movq	208(%rax), %rax
+	testq	%rax, %rax
+	jne	.L8
+	movq	-8(%rbp), %rax
+	movq	%rax, %rdi
+	call	free@PLT
+	movl	$-1, %eax
+	jmp	.L7
+.L8:
+	movq	-8(%rbp), %rax
+	movq	208(%rax), %rax
+	movq	-16(%rbp), %rdx
+	movq	%rdx, %rsi
+	movq	%rax, %rdi
+	call	memory_align@PLT
+	movq	-8(%rbp), %rdx
+	movq	%rax, 200(%rdx)
+	movq	head(%rip), %rax
+	testq	%rax, %rax
+	jne	.L9
+	movq	-8(%rbp), %rax
+	movq	%rax, head(%rip)
+	movq	-8(%rbp), %rax
+	movq	%rax, current(%rip)
+	movq	-8(%rbp), %rax
+	movq	-8(%rbp), %rdx
+	movq	%rdx, 240(%rax)
+	jmp	.L10
+.L9:
+	movq	current(%rip), %rax
+	movq	240(%rax), %rdx
+	movq	-8(%rbp), %rax
+	movq	%rdx, 240(%rax)
+	movq	current(%rip), %rax
+	movq	-8(%rbp), %rdx
+	movq	%rdx, 240(%rax)
+	movq	-8(%rbp), %rax
+	movq	%rax, current(%rip)
+.L10:
+	movl	$0, %eax
+.L7:
+	leave
+	.cfi_def_cfa 7, 8
+	ret
+	.cfi_endproc
+.LFE7:
+	.size	scheduler_create, .-scheduler_create
+	.type	candidate, @function
+candidate:
+.LFB8:
+	.cfi_startproc
+	endbr64
+	pushq	%rbp
+	.cfi_def_cfa_offset 16
+	.cfi_offset 6, -16
+	movq	%rsp, %rbp
+	.cfi_def_cfa_register 6
+	movq	current(%rip), %rax
+	movq	240(%rax), %rax
+	movq	%rax, -8(%rbp)
+	jmp	.L12
+.L16:
+	movq	-8(%rbp), %rax
+	movl	232(%rax), %eax
+	testl	%eax, %eax
+	je	.L13
+	movq	-8(%rbp), %rax
+	movl	232(%rax), %eax
+	cmpl	$2, %eax
+	jne	.L14
+.L13:
+	movq	-8(%rbp), %rax
+	jmp	.L15
+.L14:
+	movq	-8(%rbp), %rax
+	movq	240(%rax), %rax
+	movq	%rax, -8(%rbp)
+.L12:
+	movq	current(%rip), %rax
+	cmpq	%rax, -8(%rbp)
+	jne	.L16
+	movl	$0, %eax
+.L15:
+	popq	%rbp
+	.cfi_def_cfa 7, 8
+	ret
+	.cfi_endproc
+.LFE8:
+	.size	candidate, .-candidate
+	.globl	schedule
+	.type	schedule, @function
+schedule:
+.LFB9:
+	.cfi_startproc
+	endbr64
+	pushq	%rbp
+	.cfi_def_cfa_offset 16
+	.cfi_offset 6, -16
+	movq	%rsp, %rbp
+	.cfi_def_cfa_register 6
+	subq	$16, %rsp
+	call	candidate
+	movq	%rax, -16(%rbp)
+	cmpq	$0, -16(%rbp)
+	je	.L22
+	movq	-16(%rbp), %rax
+	movq	%rax, current(%rip)
+	movq	current(%rip), %rax
+	movl	232(%rax), %eax
+	testl	%eax, %eax
+	jne	.L20
+	movq	current(%rip), %rax
+	movq	200(%rax), %rax
+	addq	$4096, %rax
+	movq	%rax, -8(%rbp)
+	movq	-8(%rbp), %rax
+#APP
+# 122 "scheduler.c" 1
+	mov %rax, %rsp 
+
+# 0 "" 2
+#NO_APP
+	movq	%rax, -8(%rbp)
+	movq	current(%rip), %rax
+	movl	$1, 232(%rax)
+	movq	current(%rip), %rax
+	movq	224(%rax), %rdx
+	movq	current(%rip), %rax
+	movq	216(%rax), %rax
+	movq	%rax, %rdi
+	call	*%rdx
+	movq	current(%rip), %rax
+	movl	$3, 232(%rax)
+	movl	$1, %esi
+	leaq	ctx(%rip), %rax
+	movq	%rax, %rdi
+	call	longjmp@PLT
+.L20:
+	movq	current(%rip), %rax
+	movl	$1, 232(%rax)
+	movq	current(%rip), %rax
+	movl	$1, %esi
+	movq	%rax, %rdi
+	call	longjmp@PLT
+.L22:
+	nop
+	leave
+	.cfi_def_cfa 7, 8
+	ret
+	.cfi_endproc
+.LFE9:
+	.size	schedule, .-schedule
+	.section	.rodata
+.LC4:
+	.string	"set_timer signal()"
+	.text
+	.globl	set_timer
+	.type	set_timer, @function
+set_timer:
+.LFB10:
+	.cfi_startproc
+	endbr64
+	pushq	%rbp
+	.cfi_def_cfa_offset 16
+	.cfi_offset 6, -16
+	movq	%rsp, %rbp
+	.cfi_def_cfa_register 6
+	leaq	scheduler_yield(%rip), %rax
+	movq	%rax, %rsi
+	movl	$14, %edi
+	call	signal@PLT
+	cmpq	$-1, %rax
+	jne	.L24
+	leaq	.LC4(%rip), %rax
+	movq	%rax, %rdi
+	call	safe_strlen@PLT
+	testq	%rax, %rax
+	je	.L25
+	leaq	.LC4(%rip), %rax
+	jmp	.L26
+.L25:
+	leaq	.LC1(%rip), %rax
+.L26:
+	movq	stderr(%rip), %rdi
+	movq	%rax, %r8
+	movl	$135, %ecx
+	leaq	.LC2(%rip), %rax
+	movq	%rax, %rdx
+	leaq	.LC3(%rip), %rax
+	movq	%rax, %rsi
+	movl	$0, %eax
+	call	fprintf@PLT
+.L24:
+	movl	$1, %edi
+	call	alarm@PLT
+	nop
+	popq	%rbp
+	.cfi_def_cfa 7, 8
+	ret
+	.cfi_endproc
+.LFE10:
+	.size	set_timer, .-set_timer
+	.section	.rodata
+.LC5:
+	.string	"clear_timer signal()"
+	.text
+	.globl	clear_timer
+	.type	clear_timer, @function
+clear_timer:
+.LFB11:
+	.cfi_startproc
+	endbr64
+	pushq	%rbp
+	.cfi_def_cfa_offset 16
+	.cfi_offset 6, -16
+	movq	%rsp, %rbp
+	.cfi_def_cfa_register 6
+	movl	$0, %edi
+	call	alarm@PLT
+	movl	$0, %esi
+	movl	$14, %edi
+	call	signal@PLT
+	cmpq	$-1, %rax
+	jne	.L31
+	leaq	.LC5(%rip), %rax
+	movq	%rax, %rdi
+	call	safe_strlen@PLT
+	testq	%rax, %rax
+	je	.L29
+	leaq	.LC5(%rip), %rax
+	jmp	.L30
+.L29:
+	leaq	.LC1(%rip), %rax
+.L30:
+	movq	stderr(%rip), %rdi
+	movq	%rax, %r8
+	movl	$143, %ecx
+	leaq	.LC2(%rip), %rax
+	movq	%rax, %rdx
+	leaq	.LC3(%rip), %rax
+	movq	%rax, %rsi
+	movl	$0, %eax
+	call	fprintf@PLT
+.L31:
+	nop
+	popq	%rbp
+	.cfi_def_cfa 7, 8
+	ret
+	.cfi_endproc
+.LFE11:
+	.size	clear_timer, .-clear_timer
+	.globl	scheduler_execute
+	.type	scheduler_execute, @function
+scheduler_execute:
+.LFB12:
+	.cfi_startproc
+	endbr64
+	pushq	%rbp
+	.cfi_def_cfa_offset 16
+	.cfi_offset 6, -16
+	movq	%rsp, %rbp
+	.cfi_def_cfa_register 6
+	leaq	ctx(%rip), %rax
+	movq	%rax, %rdi
+	call	_setjmp@PLT
+	endbr64
+	call	set_timer
+	call	schedule
+	movl	$0, %eax
+	call	clear_timer
+	call	destroy
+	nop
+	popq	%rbp
+	.cfi_def_cfa 7, 8
+	ret
+	.cfi_endproc
+.LFE12:
+	.size	scheduler_execute, .-scheduler_execute
+	.globl	scheduler_yield
+	.type	scheduler_yield, @function
+scheduler_yield:
+.LFB13:
+	.cfi_startproc
+	endbr64
+	pushq	%rbp
+	.cfi_def_cfa_offset 16
+	.cfi_offset 6, -16
+	movq	%rsp, %rbp
+	.cfi_def_cfa_register 6
+	movq	current(%rip), %rax
+	testq	%rax, %rax
+	je	.L37
+	movq	current(%rip), %rax
+	movq	%rax, %rdi
+	call	_setjmp@PLT
+	endbr64
+	testl	%eax, %eax
+	jne	.L37
+	movq	current(%rip), %rax
+	movl	$2, 232(%rax)
+	movl	$1, %esi
+	leaq	ctx(%rip), %rax
+	movq	%rax, %rdi
+	call	longjmp@PLT
+.L37:
+	nop
+	popq	%rbp
+	.cfi_def_cfa 7, 8
+	ret
+	.cfi_endproc
+.LFE13:
+	.size	scheduler_yield, .-scheduler_yield
+	.ident	"GCC: (Ubuntu 13.2.0-23ubuntu4) 13.2.0"
+	.section	.note.GNU-stack,"",@progbits
+	.section	.note.gnu.property,"a"
+	.align 8
+	.long	1f - 0f
+	.long	4f - 1f
+	.long	5
+0:
+	.string	"GNU"
+1:
+	.align 8
+	.long	0xc0000002
+	.long	3f - 2f
+2:
+	.long	0x3
+3:
+	.align 8
+4:
