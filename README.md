@@ -1,9 +1,9 @@
-This repository contains the projects for the UCI CS238P course. 
+This repository contains the projects for the Operating System course. 
 
 ## Team Members
-- **Shuyuan Fu** (@skittleskittles)
-- **Yiyan Kong** (@K11yann)
-- **Hungyau Su** (@hysuuuu)
+- @skittleskittles
+- @K11yann
+- @hysuuuu
 
 ## Overview
 
